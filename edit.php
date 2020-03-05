@@ -51,6 +51,8 @@ $task = $stmt->fetch();
         <div class="row mt-4 px-4">
             <div class="col-12">
                 <form action="update.php" method="post">
+                <!-- updatesしたあとの表示 -->
+                    <input type="hidden" name="id" value="<?= $id; ?>">
                     <div class="form-group">
                         <label for="title">Title</label>
                         <!-- value入れてる,先に入れたタイトル表示 -->
