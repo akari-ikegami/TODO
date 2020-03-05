@@ -12,6 +12,7 @@ $options = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 
+
 $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
 try {
     $dbh = new PDO($dsn, $user, $password, $options);
