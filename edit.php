@@ -26,12 +26,6 @@ $task = $stmt->fetch();
 // 一覧画面に戻る
 
 
-
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,11 +53,13 @@ $task = $stmt->fetch();
                 <form action="update.php" method="post">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" name="title" id="title">
+                        <!-- value入れてる,先に入れたタイトル表示 -->
+                        <input type="text" class="form-control" name="title" id="title" value="<?php echo h($task['title']); ?>">
                     </div>
                     <div class="form-group">
                         <label for="contents">Contents</label>
-                        <textarea class="form-control" name="contents" id="contents" cols="30" rows="10"></textarea>
+                        <!-- php追加 、先に入れた文章表示-->
+                        <textarea class="form-control" name="contents" id="contents" cols="30" rows="10"><?= $task['contents'] ?></textarea>
                     </div>
                     <div class="form-group">
                         <div class="custom-file">
