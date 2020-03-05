@@ -1,10 +1,24 @@
 <?php
 
 
+// DBへ接続
+include_once('./dbconnect.php');
+include_once('./function.php');
 
+// SQL(データを操作する)文を作成
+$sql = "SELECT * FROM tasks";
 
+// SQLの実行準備
+$stmt = $dbh->prepare($sql);
+
+// SQLの実行
+$stmt->execute();
+
+// 全データを変数に入れる
+$tasks = $stmt->fetchALL();
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,17 +52,24 @@
             </div>
         </div>
 
+
+        <!-- 更新画面 -->
+
         <div class="row p-3">
+        <!-- 何してるの -->
+            <?php foreach($tasks as $task): ?>
             <div class="col-sm-6 col-md-4 col-lg-3 py-3 py-3">
                 <div class="card">
                     <img src="https://picsum.photos/200" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">ここにタイトル</h5>
                         <p class="card-text">
-                            ここに詳細
+                        <!--  何してるの -->
+                            <?= h($task["contents"]); ?>
                         </p>
                         <div class="text-right d-flex justify-content-end">
-                            <a href="edit.php" class="btn text-success">EDIT</a>
+                        <!-- 何かしてる -->
+                            <a href="edit.php?id=<?= $task['id']; ?>" class="btn text-success">EDIT</a>
                             <form action="delete.php" method="post">
                                 <input type="hidden" name="id">
                                 <button type="submit" class="btn text-danger">DELETE</button>
@@ -57,6 +78,7 @@
                     </div>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div>
     </div>
 

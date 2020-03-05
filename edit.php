@@ -1,4 +1,36 @@
+<!-- 編集機能updateするもの -->
+
 <?php
+// 編集機能
+// Editボタンをクリックしたら
+// 編集画面に移動
+// 編集画面には編集対象のデータ表示
+
+include_once('./dbconnect.php');
+include_once('./function.php');
+
+$id = $_GET['id'];
+
+
+
+// SQL作成,実行
+$stmt = $dbh->prepare("SELECT * FROM tasks WHERE id = ?");
+$stmt->execute([$id]);
+
+$task = $stmt->fetch();
+
+
+// 更新機能
+// updateボタンをクリックしたら
+// 編集対象のデータを更新
+// 一覧画面に戻る
+
+
+
+
+
+
+
 
 ?>
 <!DOCTYPE html>
