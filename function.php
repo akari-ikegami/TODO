@@ -1,3 +1,5 @@
+<!--関数置き場 -->
+
 <?php
 
 function h($str)

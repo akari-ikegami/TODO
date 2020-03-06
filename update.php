@@ -10,6 +10,7 @@ $title = $_POST['title'];
 $contents = $_POST['contents'];
 $id = $_POST['id'];
 
+
 // sql文作成
 $sql = 'UPDATE tasks SET title= :title, contents = :contents WHERE id= :id';
 

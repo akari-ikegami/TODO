@@ -1,3 +1,5 @@
+<!-- 保存処理 -->
+
 <?php
 // dbconnect.phpを読み込むーDBに接続
 include_once('./dbconnect.php');
