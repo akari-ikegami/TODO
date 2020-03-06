@@ -1,29 +1,15 @@
 <?php
-
-// ２.PHPからMySQLへ接続
 // dbconnect.phpを読み込むーDBに接続
 include_once('./dbconnect.php');
 
-// 新しいレコードを追加するための処理
-// 処理の流れ
-// 最終のゴール：新しいタスクが追加されてTOPni戻る
-
-// １.画面で入力された値の取得
-// ２.PHPからMySQLへ接続
-// ３.SQL文を作成して、画面で入力された値をtaskテーブルに追加
-// ４.index.phpに画面遷移する
-
-
-// １.画面で入力された値の取得
+//画面で入力された値の取得
 // []内に指定するのはname属性
 $title = $_POST['title'];
 $contents = $_POST['contents'];
 
-
-// ３.SQL文を作成して、画面で入力された値をtasksテーブルに追加
+// SQL文を作成して、画面で入力された値をtasksテーブルに追加
 // INSERT文の作成,追加のためのコード
 $sql = "INSERT INTO tasks(title, contents, created) VALUES(:title, :contents,  now())";
-
 
 //作成したSQLを実行できるように準備、dbhはDBに接続する変数
 $stmt = $dbh->prepare($sql);

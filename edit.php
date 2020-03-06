@@ -14,7 +14,7 @@ $id = $_GET['id'];
 
 
 // SQL作成,実行
-$stmt = $dbh->prepare("SELECT * FROM tasks WHERE id = ?");
+$stmt = $dbh->prepare("SELECT * FROM tasks WHERE id=:id");
 $stmt->execute([$id]);
 
 $task = $stmt->fetch();
@@ -51,11 +51,11 @@ $task = $stmt->fetch();
         <div class="row mt-4 px-4">
             <div class="col-12">
                 <form action="update.php" method="post">
-                <!-- updatesしたあとの表示 -->
+                <!-- updatesしたあとの表示,value追加 -->
                     <input type="hidden" name="id" value="<?= $id; ?>">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <!-- value入れてる,先に入れたタイトル表示 -->
+                        <!-- value入れる,先に入れたタイトル表示 -->
                         <input type="text" class="form-control" name="title" id="title" value="<?php echo h($task['title']); ?>">
                     </div>
                     <div class="form-group">
@@ -69,7 +69,7 @@ $task = $stmt->fetch();
                             <label class="custom-file-label" for="image">Choose file</label>
                         </div>
                     </div>
-                    <input type="hidden" name="id">
+                    <input type="hidden" name="id" value=<? $task['id'];?>>
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary">UPDATE</button>
                     </div>
