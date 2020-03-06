@@ -15,7 +15,7 @@ $stmt = $dbh->prepare($sql);
 $stmt->execute();
 
 // 全データを変数に入れる
-$tasks = $stmt->fetchALL();
+$tasks = $stmt->fetchAll();
 
 ?>
 
@@ -69,7 +69,7 @@ $tasks = $stmt->fetchALL();
                         </p>
                         <div class="text-right d-flex justify-content-end">
                         <!-- idのデータを渡す -->
-                            <a href="edit.php?id=<?= $task['id']; ?>" class="btn text-success">EDIT</a>
+                            <a href="edit.php?id=<?= h($task['id']); ?>" class="btn text-success">EDIT</a>
                             <form action="delete.php" method="post">
                             <!--  -->
                                 <input type="hidden" name="id" value="<?= h($task['id']); ?>">

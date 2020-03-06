@@ -19,7 +19,6 @@ $stmt->execute([$id]);
 
 $task = $stmt->fetch();
 
-
 // 更新機能
 // updateボタンをクリックしたら
 // 編集対象のデータを更新
@@ -52,7 +51,6 @@ $task = $stmt->fetch();
             <div class="col-12">
                 <form action="update.php" method="post">
                 <!-- updatesしたあとの表示,value追加 -->
-                    <input type="hidden" name="id" value="<?= $id; ?>">
                     <div class="form-group">
                         <label for="title">Title</label>
                         <!-- value入れる,先に入れたタイトル表示 -->
@@ -69,7 +67,7 @@ $task = $stmt->fetch();
                             <label class="custom-file-label" for="image">Choose file</label>
                         </div>
                     </div>
-                    <input type="hidden" name="id" value=<? $task['id'];?>>
+                    <input type="hidden" name="id" value=<?= $task['id'];?>>
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary">UPDATE</button>
                     </div>
